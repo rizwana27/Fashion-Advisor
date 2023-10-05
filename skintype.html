@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undertone Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('skintoneimg.jpg'); /* Set your image URL here */
+            background-size: cover; /* Cover the entire viewport */
+            background-repeat: no-repeat; /* Prevent image repetition */
+            color: black; /* Text color for the entire page (black) */
+        }
+        .quiz-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: transparent; /* Make the background of the quiz form transparent */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+        }
+        h1 {
+            text-align: center;
+        }
+        p {
+            margin: 20px 0; /* Increase margin for spacing between questions */
+            padding: 10px; /* Add padding for better readability */
+            border-radius: 5px;
+            font-weight: bold; /* Make questions bold */
+        }
+        label {
+            display: block;
+            margin: 5px 0; /* Increase margin between answer choices */
+            padding: 5px; /* Add padding for better readability */
+            border-radius: 5px;
+        }
+        .question-container {
+            background-color: #FFC0CB; /* Background color for question sections (pink) */
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .answer-container {
+            background-color: #FFC0CB; /* Background color for answer choices (pink) */
+            margin: 5px 0;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        .results {
+            display: none;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff; /* Background color for results container (white) */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>Undertone Quiz</h1>
+        <form id="quiz-form">
+            <!-- Question 1 Container -->
+            <div class="question-container">
+                <p>What color are your veins? Look at the inner part of your wrist or anywhere on your body where you can easily see your veins.</p>
+                <!-- Answer Choices for Question 1 -->
+                <div class="answer-container">
+                    <label>
+                        <input type="radio" name="q1" value="A"> You have blue or purple veins.
+                    </label>
+                    <label>
+                        <input type="radio" name="q1" value="B"> You have green-looking veins.
+                    </label>
+                    <label>
+                        <input type="radio" name="q1" value="C"> Your veins look the same as your skin color or are a mix of the two.
+                    </label>
+                </div>
+            </div>
+
+            <!-- Question 2 Container -->
+            <div class="question-container">
+                <p>What hair colors do you look best in? Have you always been a fan of platinum blonde, or do you gravitate towards golden shades when it comes to picking a suitable hair color? Depending on your undertones, certain hair dyes may be more flattering on you.</p>
+                <!-- Answer Choices for Question 2 -->
+                <div class="answer-container">
+                    <label>
+                        <input type="radio" name="q2" value="A"> You look best with ashy or platinum hair shades.
+                    </label>
+                    <label>
+                        <input type="radio" name="q2" value="B"> You look best with mahogany or golden tones.
+                    </label>
+                    <label>
+                        <input type="radio" name="q2" value="C"> Both kinds of hair colors are flattering on you.
+                    </label>
+                </div>
+            </div>
+
+            <!-- Question 3 Container -->
+            <div class="question-container">
+                <p>Try the white shirt trick. A quick trick you can use to determine your undertone involves a white shirt and a window. Stand in front of the window or in some sort of natural lighting and hold the shirt up to your face. How does the appearance of your skin change?</p>
+                <!-- Answer Choices for Question 3 -->
+                <div class="answer-container">
+                    <label>
+                        <input type="radio" name="q3" value="A"> Your skin appears to be rosier when the shirt is up against it.
+                    </label>
+                    <label>
+                        <input type="radio" name="q3" value="B"> Your skin appears more yellow.
+                    </label>
+                    <label>
+                        <input type="radio" name="q3" value="C"> You don’t notice much of a difference.
+                    </label>
+                </div>
+            </div>
+
+            <!-- Question 4 Container -->
+            <div class="question-container">
+                <p>Do you burn or tan in the sun? After a relaxing day at the beach, are you typically slathering aloe on your sunburn or admiring your golden tan? The way your skin reacts to the sun is a good indication of your undertone.</p>
+                <!-- Answer Choices for Question 4 -->
+                <div class="answer-container">
+                    <label>
+                        <input type="radio" name="q4" value="A"> You sunburn easily anytime you’re in the sun for an extended period.
+                    </label>
+                    <label>
+                        <input type="radio" name="q4" value="B"> You get a tan without burning in the sun.
+                    </label>
+                    <label>
+                        <input type="radio" name="q4" value="C"> You usually get a mix of tan and sunburn.
+                    </label>
+                </div>
+            </div>
+
+            <!-- Question 5 Container -->
+            <div class="question-container">
+                <p>What color jewelry do you look best in? It’s fun to play around with different kinds of jewel tones to add the finishing touches to your look. You probably have a mix of gold and silver in your jewelry arsenal, but chances are, you reach for a certain type of metal more often than not because it’s the most flattering on you.</p>
+                <!-- Answer Choices for Question 5 -->
+                <div class="answer-container">
+                    <label>
+                        <input type="radio" name="q5" value="A"> Silver and rose gold jewelry look best on you.
+                    </label>
+                    <label>
+                        <input type="radio" name="q5" value="B"> Gold is your go-to for jewelry.
+                    </label>
+                    <label>
+                        <input type="radio" name="q5" value="C"> You can rock both gold and silver.
+                    </label>
+                </div>
+            </div>
+
+            <!-- The moment of truth -->
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <div class="results" id="results-container">
+        <!-- Results will be displayed here -->
+    </div>
+    <script>
+        document.getElementById('quiz-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Collect user answers
+            const answers = {
+                q1: document.querySelector('input[name="q1"]:checked').value,
+                q2: document.querySelector('input[name="q2"]:checked').value,
+                q3: document.querySelector('input[name="q3"]:checked').value,
+                q4: document.querySelector('input[name="q4"]:checked').value,
+                q5: document.querySelector('input[name="q5"]:checked').value,
+            };
+
+            // Calculate results based on user answers
+            let result;
+            if (answers.q1 === "A" && answers.q2 === "A" && answers.q3 === "A" && answers.q4 === "A" && answers.q5 === "A") {
+                result = "You have a cool undertone";
+            } else if (answers.q1 === "B" && answers.q2 === "B" && answers.q3 === "B" && answers.q4 === "B" && answers.q5 === "B") {
+                result = "You have a warm undertone";
+            } else {
+                result = "You have a neutral undertone";
+            }
+
+            // Display results
+            const resultsContainer = document.getElementById('results-container');
+            resultsContainer.innerHTML = `
+                <h2>Quiz Results:</h2>
+                <p>${result}</p>
+            `;
+
+            // Show results container
+            resultsContainer.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
