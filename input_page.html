@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Text Entry Form</title>
+</head>
+<body>
+    <form method="POST" action="{% url 'text_entry_view' %}">
+        {% csrf_token %}
+        <label for="text_input">Please Enter:</label>
+        <input type="text" id="text_input" name="text_input">
+        <input type="submit" value="Submit">
+    </form>
+
+    {% if entered_text %}
+    <p>Entered Text: {{ entered_text }}</p>
+    <p>Success! Your text has been entered.</p>
+    {% endif %}
+
+    <h1>Stored Data</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Text</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in stored_data %}
+            <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.text }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="2">No data available.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        {% for text in all_entered_texts %}
+        <li>{{ text.text }}</li>
+        {% empty %}
+        <li>No data available.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
