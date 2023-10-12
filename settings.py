@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     
     # Add your apps here to enable them
+    # added fashion template html in app
     'app',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -78,12 +79,13 @@ TEMPLATES = [
 WSGI_APPLICATION = 'DjangoWebProject_fashion_design.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
+# Adding data base reference to connect with MySQL server - DataBase Bridge
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'skintone',
         'USER': '8897p@localhost',
-        'PASSWORD': 'Galicgun@1*',
+        'PASSWORD': 'Galicgun@1*', #password not protected yet
         'HOST': 'localhost',  # Use the actual host where your MySQL database is running
         'PORT': '3306',       # Use the actual port for MySQL
     }
