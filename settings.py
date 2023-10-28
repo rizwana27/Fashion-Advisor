@@ -1,5 +1,5 @@
 """
-Django settings for DjangoWebProject_fashion_design project.
+Django settings for DjangoFA project.
 
 Based on 'django-admin startproject' using Django 2.1.2.
 
@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '6dfa7295-07da-4749-b816-dd9a75fb5161'
+SECRET_KEY = '681c047d-7695-48cf-b21f-a281599ea76a'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -30,18 +30,14 @@ ALLOWED_HOSTS = []
 # Application references
 # https://docs.djangoproject.com/en/2.1/ref/settings/#std:setting-INSTALLED_APPS
 INSTALLED_APPS = [
-    
-    # Add your apps here to enable them
-    # added fashion template html in app
     'app',
+    # Add your apps here to enable them
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
-    
 ]
 
 # Middleware framework
@@ -56,7 +52,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'DjangoWebProject_fashion_design.urls'
+ROOT_URLCONF = 'DjangoFA.urls'
 
 # Template configuration
 # https://docs.djangoproject.com/en/2.1/topics/templates/
@@ -76,20 +72,21 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'DjangoWebProject_fashion_design.wsgi.application'
+WSGI_APPLICATION = 'DjangoFA.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
-# Adding data base reference to connect with MySQL server - DataBase Bridge
 DATABASES = {
     'default': {
+      
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'skintone',
+        'NAME': 'fa',
         'USER': '8897p@localhost',
-        'PASSWORD': 'Galicgun@1*', #password not protected yet
+        'PASSWORD': 'Galicgun@1*',
         'HOST': 'localhost',  # Use the actual host where your MySQL database is running
-        'PORT': '3306',       # Use the actual port for MySQL
+        'PORT': '3306', 
+       }      
     }
-}
+   
 
 
 # Password validation
