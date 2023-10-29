@@ -6,74 +6,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
     <style>
-        button {
-            background-color: #a62a6c;
-            color: white;
-            padding: 14px 20px;
-            margin: 8px 0;
-            border: none;
-            cursor: pointer;
-            width: 10%;
-        }
-        button:hover {
-            opacity: 0.8;
-        }
-    /* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  padding-top: 60px;
-}
+      body {
+          font-family: Arial, sans-serif;
+          background-color: #f8f1f1;
+          text-align: center;
+      }
 
-/* Modal Content/Box */
-.modal-content {
-  background-color: #fefefe;
-  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
-}
-/* Add Zoom Animation */
-.animate {
-  -webkit-animation: animatezoom 0.6s;
-  animation: animatezoom 0.6s
-}
+      .alert {
+          color: #721c24;
+          background-color: #f8d7da;
+          border-color: #f5c6cb;
+          position: relative;
+          padding: 0.75rem 1.25rem;
+          margin-bottom: 1rem;
+          border: 1px solid transparent;
+          border-radius: 0.25rem;
+          text-align: center;
+      }
 
-@-webkit-keyframes animatezoom {
-  from {-webkit-transform: scale(0)} 
-  to {-webkit-transform: scale(1)}
-}
-  
-@keyframes animatezoom {
-  from {transform: scale(0)} 
-  to {transform: scale(1)}
-}
+      .close {
+          position: absolute;
+          top: 0;
+          right: 1.25rem;
+          font-size: 1.25rem;
+      }
 
-/* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-  span.psw {
-     display: block;
-     float: none;
-  }
-  .cancelbtn {
-     width: 100%;
-  }
-}
-.welcome-message {
-  display: none;
-  font-size: 20px;
-  font-weight: bold;
-  text-align: center;
-  margin-top: 20px;
-}
-    </style>
+      h3 {
+          color: #a62a6c;
+      }
+
+      .form-group {
+          text-align: left;
+      }
+
+      label {
+          color: #a62a6c;
+          font-weight: bold;
+      }
+
+      input {
+          width: 100%;
+          padding: 0.5rem;
+          margin-bottom: 1rem;
+          border: 1px solid #a62a6c;
+          border-radius: 0.25rem;
+          box-sizing: border-box;
+      }
+
+      button {
+          background-color: #a62a6c;
+          color: white; /* Text color set to white */
+          padding: 0.75rem 1.5rem;
+          margin: 0.5rem 0;
+          border: none;
+          cursor: pointer;
+          border-radius: 0.25rem;
+          font-size: 1rem;
+      }
+
+      button:hover {
+          background-color: #8b2046;
+      }
+  </style>
 </head>
 <body>
     
