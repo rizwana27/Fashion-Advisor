@@ -27,7 +27,14 @@
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="products.html">advisor</a></li>
-            <li><a href="login.html" id="login">Login</a></li>
+
+            {% if user.is_authenticated %}
+            <li><h3>Hello {{ user.first_name }}!</h3></li>
+            <li><a href="/signout">SignOut</a></li>
+            {% else %}
+            <li><a href="{% url 'signup' %}">SignUp</a></li>
+            <li><a href="{% url 'signin' %}">SignIn</a></li>
+            {% endif %}
         </ul>
         <div class="burger">
             <div class="line1"></div>
@@ -55,12 +62,12 @@
     </div>
 
     <br><br>
-        <div class="index-grid-img-1">
-            <a href="products.html"><h4 class="info-of-img-below">color type</h4></a>
-            <a href="products.html"><h4 class="info-of-img-below">Figure & fit</h4></a>
-            <a href="{% url 'bodyshape' %}"><h4 class="info-of-img-below">Body Shape</h4></a>
-            <a href="{% url 'skintype' %}"><h4 class="info-of-img-below">SKin Tone</h4></a>
-        </div>
+    <div class="index-grid-img-1">
+        <a href="products.html"><h4 class="info-of-img-below">color type</h4></a>
+        <a href="products.html"><h4 class="info-of-img-below">Figure & fit</h4></a>
+        <a href="{% url 'bodyshape' %}"><h4 class="info-of-img-below">Body Shape</h4></a>
+        <a href="{% url 'skintype' %}"><h4 class="info-of-img-below">SKin Tone</h4></a>
+    </div>
 
     <br><br><br>
     <br><br>
