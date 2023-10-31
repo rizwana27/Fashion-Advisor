@@ -1,0 +1,92 @@
+Create a new app within your project. Let's call it reviews_app:    
+	
+	python manage.py startapp reviews_app
+	
+In your reviews_app/models.py, define a model for the reviews:	
+	
+    from django.db import models
+
+    class Review(models.Model):
+        name = models.CharField(max_length=200)
+        review = models.TextField()
+        rating = models.IntegerField()
+
+Create a form in reviews_app/forms.py:
+
+    from django import forms
+    from .models import Review
+
+    class ReviewForm(forms.ModelForm):
+        class Meta:
+            model = Review
+            fields = ['name', 'review', 'rating']
+
+In reviews_app/views.py, create a view to handle the form:
+
+    from django.shortcuts import render, redirect
+    from .forms import ReviewForm
+
+    def review_view(request):
+        if request.method == 'POST':
+            form = ReviewForm(request.POST)
+            if form.is_valid():
+                form.save()
+                return redirect('reviews')
+        else:
+            form = ReviewForm()
+        return render(request, 'reviews_app/review_form.html', {'form': form})
+		
+Create a template in reviews_app/templates/reviews_app/review_form.html:
+
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+	
+	
+In your project's urls.py file, add a URL pattern for the view:
+
+
+    from django.urls import path
+    from reviews_app.views import review_view
+
+    urlpatterns = [
+        path('reviews/', review_view, name='reviews'),
+        # other url patterns...
+    ]
+
+Add reviews_app to INSTALLED_APPS in your settings file.
+
+Run the following commands to create the database table for the reviews:
+
+
+    python manage.py makemigrations
+    python manage.py migrate
+	
+	
+	
+to view the db
+from reviews_app.models import Review
+reviews = Review.objects.raw('SELECT * FROM reviews_app_review')
+for review in reviews:
+    print(review)
+	
+or 
+from reviews_app.models import Review
+reviews = Review.objects.all()
+for review in reviews:
+    print(f'Name: {review.name}, Review: {review.review}, Rating: {review.rating}')
+	
+
+to change the default string representation of your model instances, you can add a __str__ method to your model:
+
+class Review(models.Model):
+    name = models.CharField(max_length=200)
+    review = models.TextField()
+    rating = models.IntegerField()
+
+    def __str__(self):
+        return self.name  # or any string representation you prefer
+	
