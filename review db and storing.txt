@@ -90,3 +90,40 @@ class Review(models.Model):
     def __str__(self):
         return self.name  # or any string representation you prefer
 	
+1. Update your view function: In your review_view function in reviews_app/views.py, query the database for all reviews and pass them to the template:
+    from django.shortcuts import render, redirect
+    from .forms import ReviewForm
+    from .models import Review
+
+    def review_view(request):
+        if request.method == 'POST':
+            form = ReviewForm(request.POST)
+            if form.is_valid():
+                form.save()
+                return redirect('reviews')
+        else:
+            form = ReviewForm()
+        reviews = Review.objects.all()  # query the database for all reviews
+        return render(request, 'reviews_app/your_html_file.html', {'form': form, 'reviews': reviews})
+
+
+2. Update your HTML template: In your HTML file, iterate over the reviews and display their data:
+
+    <div class="container">
+        <h1>Customer Reviews</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Submit Review</button>
+        </form>
+        <div id="confirmation-message"></div>
+
+        <!-- Display the reviews -->
+        {% for review in reviews %}
+            <div class="review">
+                <h2>{{ review.name }}</h2>
+                <p>Rating: {{ review.rating }}</p>
+                <p>{{ review.review }}</p>
+            </div>
+        {% endfor %}
+    </div>
