@@ -113,12 +113,13 @@
 <body>
     <div class="header">
         <div class="logo">
-            <!-- <img src="logo.png" alt="Logo" style="width: 125px; height: 75px;">  -->
-            <img src="{% static 'app/images/logo.png' %}" alt="">
+             
+            <img src="{% static 'app/images/logo-modified.png' %}" alt="" style="width: 100px; height: 75px;">
         </div>
         <div>
-            <a href="index.html" class="header-button">Home</a>
-            <a href="login.html" class="header-button">Login</a>
+            <li><a href="{% url 'home' %}" style="font-family: 'Arial', sans-serif; font-size: 16px; color: #333; text-decoration: none;">Home</a></li>
+
+            <!--<a href="login.html" class="header-button">Login</a> -->
         </div>
     </div>
 
@@ -443,22 +444,22 @@
         let currentSkinQuestion = 1;
 	const skinTypeImages = {
     'Pale White': {
-        src: 'pale_white.jpeg',
+        src: '/static/app/images/pale_white.jpeg',
     },
     'Fair White': {
-        src: 'fair_white.jpeg',
+        src: '/static/app/images/fair_white.jpeg',
     },
     'Medium White to Olive': {
-	src: 'Olive.jpeg',
+        src: '/static/app/images/Olive.jpeg',
     },
     'Olive to Brown': {
-	src: 'Brown.jpeg',
+        src: '/static/app/images/Brown.jpeg',
     },
     'Dark Brown': {
-	src: 'Dark_Brown.jpeg',
+        src: '/static/app/images/Dark_Brown.jpeg',
     },
     'Deeply Pigmented Dark Brown to Black': {
-	src: 'Black.jpeg',
+        src: '/static/app/images/Black.jpeg',
     }
 
 };

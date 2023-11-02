@@ -26,7 +26,8 @@
         </div>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
-            <li><a href="products.html">advisor</a></li>
+            <li><a href="{% url 'advisor' %}">Advisor</a></li>
+            <li><a href="{% url 'customerRev' %}">Customer Review Page</a></li>
 
             {% if user.is_authenticated %}
             <li><h3>Hello {{ user.first_name }}!</h3></li>
@@ -55,16 +56,17 @@
     <br>
 
     <div class="index-offers-img">
-        <a href="products.html"><img src="{% static 'app/images/colortype.jpeg' %}" alt=""></a>
-        <a href="products.html"><img src="{% static 'app/images/figurefit.jpeg' %}" alt=""></a>
-        <a href="products.html"><img src="{% static 'app/images/skintone.jpeg' %}" alt=""></a>
+        <a href="products.html"><img src="{% static 'app/images/colortype.jpeg' %}" alt="" style="width: 200px; height: 175px;"></a>
+        <a href="products.html"><img src="{% static 'app/images/figurefit.jpeg' %}" alt="" style="width: 200px; height: 175px;"></a>
+        
         <a href="products.html"><img src="{% static 'app/images/bodyshape.jpeg' %}" alt=""></a>
+        <a href="products.html"><img src="{% static 'app/images/skintone.jpeg' %}" alt=""></a>
     </div>
 
     <br><br>
     <div class="index-grid-img-1">
         <a href="products.html"><h4 class="info-of-img-below">color type</h4></a>
-        <a href="products.html"><h4 class="info-of-img-below">Figure & fit</h4></a>
+        <a href="{% url 'figurefit' %}"><h4 class="info-of-img-below">Figure & Fit</h4></a>
         <a href="{% url 'bodyshape' %}"><h4 class="info-of-img-below">Body Shape</h4></a>
         <a href="{% url 'skintype' %}"><h4 class="info-of-img-below">SKin Tone</h4></a>
     </div>

@@ -30,3 +30,32 @@ class CustomUserCreationForm(UserCreationForm):
     class Meta:
         model = User
         fields = ("username", "first_name", "last_name", "email", "password1", "password2")
+
+
+
+
+class StylePreferenceForm(forms.Form):
+    BODY_SHAPE_CHOICES = (
+        ('hourglass', 'Hourglass'),
+        ('apple', 'Apple'),
+        ('pear', 'Pear'),
+        ('rectangle', 'Rectangle')
+    )
+
+    SKIN_TONE_CHOICES = (
+        ('fair', 'Fair'),
+        ('medium', 'Medium'),
+        ('dark', 'Dark')
+    )
+
+    COLOR_CHOICES = (
+        ('red', 'Red'),
+        ('blue', 'Blue'),
+        ('green', 'Green'),
+        ('yellow', 'Yellow')
+    )
+
+    bodyShape = forms.ChoiceField(choices=BODY_SHAPE_CHOICES, label="Select your body shape")
+    skinTone = forms.ChoiceField(choices=SKIN_TONE_CHOICES, label="Select your skin tone")
+    colorPreference = forms.ChoiceField(choices=COLOR_CHOICES, label="Select your color preference")
+

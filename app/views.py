@@ -141,6 +141,24 @@ def activate(request, uidb64, token):
         return render(request, 'app/activation_failed.html')
 
 
+# figure and fit view place holder
+
+def figurefit(request):
+    
+    return render(request, 'app/test.html')
+
+
+def customerRev(request):
+    
+    return render(request, 'app/Customer_review_page.html')
+
+
+def advisor(request):
+    
+    return render(request, 'app/Influencers.html')
+
+
+
 
 
 
