@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Outfit Based on Season and Occassion</title>
+    <style>
+	body {
+    font-family: Arial, sans-serif;
+}
+
+#outfitContainer {
+    margin-top: 20px;
+}
+
+
+    /* ... existing styles ... */
+    .outfitImage {
+        width: 200px;  /* adjust as needed */
+        height: 300px; /* adjust as needed */
+        object-fit: cover; /* this will ensure that images keep their aspect ratio */
+    }
+button {
+  background-color: #a62a6c;
+  color: white;
+  padding: 2px 2px;
+  margin: 2px 0;
+  border: none;
+  cursor: pointer;
+  width: 10%;
+}
+	</style>
+</head>
+<body>
+    <h1>Outfit Selector</h1>
+    <select id="season">
+        <option value="spring">Spring</option>
+        <option value="summer">Summer</option>
+        <option value="autumn">Autumn</option>
+        <option value="winter">Winter</option>
+    </select>
+    <select id="occasion">
+        <option value="casual">Casual</option>
+        <option value="formal">Formal</option>
+        <option value="party">Party</option>
+    </select>
+    <button onclick="displayOutfit()">Show Outfit</button>
+    <div id="outfitContainer"></div>
+    <script>
+	var outfits = {
+    spring: {
+        casual: ['spring_casual_1.png','spring_casual_2.png','spring_casual_3.png','spring_casual_4.png','spring_casual_5.png'],
+        formal: ['spring_formal_1.png','spring_formal_2.png','spring_formal_3.png','spring_formal_4.png','spring_formal_5.png','spring_formal_6.png','spring_formal_7.png','spring_formal_8.png'],
+        party: ['spring_party_1.png','spring_party_2.png','spring_party_3.png','spring_party_4.png'],
+    },
+    summer: {
+        casual: ['summer_casual_1.png','summer_casual_2.png','summer_casual_3.png','summer_casual_4.png'],
+        formal: ['summer_formal_1.png','summer_formal_2.png','summer_formal_3.png','summer_formal_4.png'],
+        party: ['summer_party_1.png','summer_party_2.png','summer_party_3.png','summer_party_4.png'],
+    },
+    autumn: {
+        casual: ['autumn_casual_1.png'],
+        formal: ['autumn_formal_1.png'],
+        party: ['autumn_party_1.png'],
+    },
+    winter: {
+        casual: ['winter_casual_1.png','winter_casual_2.png','winter_casual_3.png','winter_casual_4.png'],
+        formal: ['winter_formal_1.png','winter_formal_2.png','winter_formal_3.png'],
+        party: ['winter_party_1.png'],
+    }
+};
+
+function displayOutfit() {
+    var season = document.getElementById('season').value;
+    var occasion = document.getElementById('occasion').value;
+    var outfitImages = outfits[season][occasion];
+    var outfitContainer = document.getElementById('outfitContainer');
+    outfitContainer.innerHTML = ''; // clear the container
+    for (var i = 0; i < outfitImages.length; i++) {
+        outfitContainer.innerHTML += '<img class="outfitImage" src="' + outfitImages[i] + '">';
+    }
+}
+	
+	</script>
+</body>
+</html>
