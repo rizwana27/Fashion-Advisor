@@ -198,7 +198,34 @@ img {
 .toggle .line3 {
     transform: rotate(45deg) translate(-5px, -6px);
 }
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
 
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+
+  position: absolute;
+  z-index: 1;
+  top: 90%; /* Adjust this to position the text */
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
 </style>
 </head>
 <body>
@@ -417,6 +444,16 @@ img {
         </div>
     </div>
 </div>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("img").each(function(){
+    var altText = $(this).attr("alt");
+    $(this).wrap('<div class="tooltip"></div>');
+    $(this).after('<span class="tooltiptext">' + altText + '</span>');
+  });
+});
+</script>
 </body>
 </html>
