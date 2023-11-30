@@ -3,66 +3,62 @@ Definition of views.
 """
 
 from datetime import datetime
-from django.shortcuts import render
 from django.http import HttpRequest
-# custom import
+from django.contrib.auth.views import LoginView
+from django.shortcuts import render, redirect
+from django.contrib import messages
+from .forms import CustomUserCreationForm
 
-from .models import EnteredText
+from django.contrib.auth import authenticate, login
+
+from django.contrib import messages
+from django.contrib.auth.forms import AuthenticationForm
 
 def home(request):
     """Renders the home page."""
     assert isinstance(request, HttpRequest)
     return render(
         request,
-        'app/index.html',
-        {
-            'title':'Home Page',
-            'year':datetime.now().year,
-        }
-    )
+        'app/index.html',)
 
-def contact(request):
-    """Renders the contact page."""
-    assert isinstance(request, HttpRequest)
-    return render(
-        request,
-        'app/contact.html',
-        {
-            'title':'Contact',
-            'message':'Your contact page.',
-            'year':datetime.now().year,
-        }
-    )
+def bodyshape_view(request):
+    return render(request, 'app/bodyshape.html')
 
-def about(request):
-    """Renders the about page."""
-    assert isinstance(request, HttpRequest)
-    return render(
-        request,
-        'app/about.html',
-        {
-            'title':'About',
-            'message':'Your application description page.',
-            'year':datetime.now().year,
-        }
-    )
+def skintype_view(request):
+    return render(request, 'app/skintype.html')
 
 
-#new view added by PavanY
+def signup_view(request):
+    if request.method == "POST":
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            messages.success(request, f'Account created for {username}!')
+            return redirect('home')  # redirect to login page
+    else:
+        form = CustomUserCreationForm()
+    return render(request, 'app/signup.html', {'form': form})
 
-
-def text_entry_view(request):
-    entered_text = None
-    assert isinstance(request, HttpRequest)
+def signin(request):
     if request.method == 'POST':
-        entered_text_value = request.POST.get('text_input', '')
+        form = AuthenticationForm(request, request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+                messages.success(request, f'Welcome, {username}!')
+                return redirect('home')  # or wherever you want to redirect after login
+            else:
+                messages.error(request, 'Invalid username or password.')
+        else:
+            messages.error(request, 'Invalid username or password.')
+    else:
+        form = AuthenticationForm()
+    return render(request, 'app/signin.html', {'form': form})
 
-        # Create a new EnteredText object and save it to the database
-        entered_text = EnteredText(text=entered_text_value)
-        entered_text.save()
 
-    # Fetch all previously stored EnteredText objects from the database
-    all_entered_texts = EnteredText.objects.all()
 
-    return render(request, 'app/input_page.html', {'entered_text': entered_text, 'all_entered_texts': all_entered_texts})
-
+    
