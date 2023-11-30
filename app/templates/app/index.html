@@ -10,7 +10,6 @@
     {% load static %}
 
     <link href="https://fonts.googleapis.com/css?family=Lora:400,700|Montserrat:300" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Chivo:300,700|Playfair+Display:700i" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Beth+Ellen&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nova+Cut|Nova+Script&display=swap" rel="stylesheet">
@@ -26,7 +25,7 @@
             <img src="{% static 'app/images/logo-modified.png' %}" alt="">
         </div>
         <ul class="nav-links">
-            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="index.html">Home</a></li>
             <li><a href="{% url 'advisor' %}">Advisor</a></li>
             <li><a href="{% url 'customerRev' %}">Customer Review Page</a></li>
 
@@ -57,8 +56,8 @@
     <br>
 
     <div class="index-offers-img">
-        <a href="products.html"><img src="{% static 'app/images/colortype.jpeg' %}" alt="" ></a>
-        <a href="products.html"><img src="{% static 'app/images/figurefit.jpeg' %}" alt="" ></a>
+        <a href="products.html"><img src="{% static 'app/images/colortype.jpeg' %}" alt="" style="width: 200px; height: 175px;"></a>
+        <a href="products.html"><img src="{% static 'app/images/figurefit.jpeg' %}" alt="" style="width: 200px; height: 175px;"></a>
         
         <a href="products.html"><img src="{% static 'app/images/bodyshape.jpeg' %}" alt=""></a>
         <a href="products.html"><img src="{% static 'app/images/skintone.jpeg' %}" alt=""></a>
@@ -66,7 +65,7 @@
 
     <br><br>
     <div class="index-grid-img-1">
-        <a href="{% url 'trends' %}"><h4 class="info-of-img-below">color type</h4></a>
+        <a href="products.html"><h4 class="info-of-img-below">color type</h4></a>
         <a href="{% url 'figurefit' %}"><h4 class="info-of-img-below">Figure & Fit</h4></a>
         <a href="{% url 'bodyshape' %}"><h4 class="info-of-img-below">Body Shape</h4></a>
         <a href="{% url 'skintype' %}"><h4 class="info-of-img-below">SKin Tone</h4></a>

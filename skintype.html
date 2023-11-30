@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% load static %}
+
     <title>Skin Type and Undertone Quizzes</title>
     <style>
         body {
@@ -12,6 +15,7 @@
             background-repeat: no-repeat; /* Prevent image repetition */
             color: black; /* Text color for the entire page (white) */
         }
+
         .quiz-container {
             max-width: 600px;
             margin: 0 auto;
@@ -21,10 +25,11 @@
             position: relative;
             z-index: 1; /* Ensure the quiz container is on top of the background image */
         }
+
         h1 {
             text-align: center;
         }
-        
+
         label {
             display: block;
             margin: 10px 0; /* Increase margin between answer choices */
@@ -34,16 +39,16 @@
             color: black; /* Text color for answer choices (black) */
             font-weight: bold; /* Make answer choices bold */
         }
-	/* Set a style for all buttons */
-button {
-  background-color: #a62a6c;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-}
+        /* Set a style for all buttons */
+        button {
+            background-color: #a62a6c;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
 
         .results {
             display: none;
@@ -54,42 +59,43 @@ button {
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
             text-align: center;
-	    
         }
 
 
-/* Update the question-container styles */
-.question-container {
-    max-width: 600px; /* Reduce the maximum width */
-    margin: 20px auto; /* Center the container horizontally */
-    padding: 20px; /* Reduce padding for better spacing */
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 10px;
-    border: 1px solid black;
-    font-weight: bold;
-    text-align: center; /* Center text horizontally */
-}
+        /* Update the question-container styles */
+        .question-container {
+            max-width: 600px; /* Reduce the maximum width */
+            margin: 20px auto; /* Center the container horizontally */
+            padding: 20px; /* Reduce padding for better spacing */
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            border: 1px solid black;
+            font-weight: bold;
+            text-align: center; /* Center text horizontally */
+        }
 
-/* Update the answer-container styles */
-.answer-container {
-    text-align: left; /* Align answer choices to the left */
-}
+        /* Update the answer-container styles */
+        .answer-container {
+            text-align: left; /* Align answer choices to the left */
+        }
 
-/* Center the submit button in the combined-results-container */
-#combined-results-container button {
-    display: block;
-    margin: 0 auto;
-}
+        /* Center the submit button in the combined-results-container */
+        #combined-results-container button {
+            display: block;
+            margin: 0 auto;
+        }
 
- .header {
+        .header {
             display: flex;
             justify-content: space-between; /* Align elements to the left and right */
             align-items: center; /* Vertically center elements */
             padding: 10px;
         }
+
         .logo {
             margin-left: 10px; /* Add left margin to the logo */
         }
+
         .header-button {
             background-color: rgba(255, 255, 255, 0.9);
             color: #a62a6c;
@@ -105,16 +111,17 @@ button {
     </style>
 </head>
 <body>
-  <div class="header">
+    <div class="header">
         <div class="logo">
-            <img src="logo.png" alt="Logo" style="width: 125px; height: 75px;">
+            <!-- <img src="logo.png" alt="Logo" style="width: 125px; height: 75px;">  -->
+            <img src="{% static 'app/images/logo.png' %}" alt="">
         </div>
         <div>
             <a href="index.html" class="header-button">Home</a>
             <a href="login.html" class="header-button">Login</a>
         </div>
     </div>
-   
+
     <div id="skin-quiz">
         <h1>Skin Type Quiz</h1>
         <form id="skin-quiz-form">
@@ -204,7 +211,7 @@ button {
                         <input type="radio" name="freckles" value="4"> None
                     </label>
                 </div>
-		<button class="next-button" type="button" data-next="question-5">Next Question</button>
+                <button class="next-button" type="button" data-next="question-5">Next Question</button>
             </div>
 
             <!-- Question 5 Container -->
@@ -227,7 +234,7 @@ button {
                         <input type="radio" name="sun_response" value="4"> Never burns
                     </label>
                 </div>
-	<button class="next-button" type="button" data-next="question-6">Next Question</button>
+                <button class="next-button" type="button" data-next="question-6">Next Question</button>
             </div>
 
             <!-- Question 6 Container -->
@@ -250,7 +257,7 @@ button {
                         <input type="radio" name="skin_tan" value="4"> Always
                     </label>
                 </div>
-	<button class="next-button" type="button" data-next="question-7">Next Question</button>
+                <button class="next-button" type="button" data-next="question-7">Next Question</button>
             </div>
 
             <!-- Question 7 Container -->
@@ -273,7 +280,7 @@ button {
                         <input type="radio" name="tan_depth" value="4"> My skin is naturally dark
                     </label>
                 </div>
-	<button class="next-button" type="button" data-next="question-8">Next Question</button>
+                <button class="next-button" type="button" data-next="question-8">Next Question</button>
             </div>
 
             <!-- Question 8 Container -->
@@ -296,133 +303,133 @@ button {
                         <input type="radio" name="face_sensitivity" value="4"> Very resistant/Never had a problem
                     </label>
                 </div>
-		<!-- Add an ID to the first submit button for the undertone quiz -->
-            <button class="next-button" type="button" data-next="undertone-quiz" id="undertone-quiz-button">Take Undertone Quiz</button>
+                <!-- Add an ID to the first submit button for the undertone quiz -->
+                <button class="next-button" type="button" data-next="undertone-quiz" id="undertone-quiz-button">Take Undertone Quiz</button>
+            </div>
     </div>
-</div>
 
 
-       
+
 
     <!-- Undertone Quiz -->
-<div id="undertone-quiz" style="display: none;">
-<h1>Know Your Skin Tone</h1>
-    <div class="question-container undertone-question" id="q1-container">
-        <p>What color are your veins? Look at the inner part of your wrist or anywhere on your body where you can easily see your veins.</p>
-        <div class="answer-container">
-            <label>
-                <input type="radio" name="q1" value="A"> You have blue or purple veins.
-            </label>
-            <label>
-                <input type="radio" name="q1" value="B"> You have green-looking veins.
-            </label>
-            <label>
-                <input type="radio" name="q1" value="C"> Your veins look the same as your skin color or are a mix of the two.
-            </label>
-        </div>
-        <button class="next-button" type="button" data-next="q2-container">Next Question</button>
-    </div>
-
-    <!-- Question 2 Container -->
-    <div class="question-container undertone-question" id="q2-container" style="display: none;">
-        <p>What hair colors do you look best in? Have you always been a fan of platinum blonde, or do you gravitate towards golden shades when it comes to picking a suitable hair color? Depending on your undertones, certain hair dyes may be more flattering on you.</p>
-        <!-- Answer Choices for Question 2 -->
-        <div class="answer-container">
-            <label>
-                <input type="radio" name="q2" value="A"> You look best with ashy or platinum hair shades.
-            </label>
-            <label>
-                <input type="radio" name="q2" value="B"> You look best with mahogany or golden tones.
-            </label>
-            <label>
-                <input type="radio" name="q2" value="C"> Both kinds of hair colors are flattering on you.
-            </label>
-        </div>
-        <button class="next-button" type="button" data-next="q3-container">Next Question</button>
-    </div>
-
-    <!-- Question 3 Container -->
-    <div class="question-container undertone-question" id="q3-container" style="display: none;">
-        <p>Try the white shirt trick. A quick trick you can use to determine your undertone involves a white shirt and a window. Stand in front of the window or in some sort of natural lighting and hold the shirt up to your face. How does the appearance of your skin change?</p>
-        <!-- Answer Choices for Question 3 -->
-        <div class="answer-container">
-            <label>
-                <input type="radio" name="q3" value="A"> Your skin appears more pinkish or rosy.
-            </label>
-            <label>
-                <input type="radio" name="q3" value="B"> Your skin appears warmer with a golden or yellowish tint.
-            </label>
-            <label>
-                <input type="radio" name="q3" value="C"> Your skin appears the same; no noticeable change in color.
-            </label>
-        </div>
-        <button class="next-button" type="button" data-next="q4-container">Next Question</button>
-    </div>
-
-    <!-- Question 4 Container -->
-    <div class="question-container undertone-question" id="q4-container" style="display: none;">
-        <p>What jewelry complements your skin tone? Depending on your undertone, certain metals or gemstones might look better on you.</p>
-        <!-- Answer Choices for Question 4 -->
-        <div class="answer-container">
-            <label>
-                <input type="radio" name="q4" value="A"> You look best in silver or white gold jewelry.
-            </label>
-            <label>
-                <input type="radio" name="q4" value="B"> You look best in gold or rose gold jewelry.
-            </label>
-            <label>
-                <input type="radio" name="q4" value="C"> Both silver and gold jewelry complement your skin tone.
-            </label>
-        </div>
-        <button class="next-button" type="button" data-next="q5-container">Next Question</button>
-    </div>
-
-    <!-- Question 5 Container -->
-    <div class="question-container undertone-question" id="q5-container" style="display: none;">
-        <p>What colors do you feel most confident wearing? Everyone has a favorite color, but some shades might make you feel more radiant than others. Pay attention to the colors that garner you the most compliments and make you feel like a million bucks.</p>
-        <!-- Answer Choices for Question 5 -->
-        <div class="answer-container">
-            <label>
-                <input type="radio" name="q5" value="A"> Cool-toned colors like blues, purples, and cool pinks.
-            </label>
-            <label>
-                <input type="radio" name="q5" value="B"> Warm-toned colors like reds, oranges, and warm yellows.
-            </label>
-            <label>
-                <input type="radio" name="q5" value="C"> Both cool and warm colors make you feel confident.
-            </label>
-        </div>
-        <button class="next-button" type="button" data-next="q6-container">Next Question</button>
-    </div>
-
-    <!-- Question 6 Container -->
-    <div class="question-container undertone-question" id="q6-container" style="display: none;">
-        <p>What are the undertones of the makeup products that look best on your skin? Consider the foundation, lipstick, and blush shades that enhance your complexion the most.</p>
-        <!-- Answer Choices for Question 6 -->
-        <div class="answer-container">
-            <label>
-                <input type="radio" name="q6" value="A"> Cool-toned makeup products.
-            </label>
-            <label>
-                <input type="radio" name="q6" value="B"> Warm-toned makeup products.
-            </label>
-            <label>
-                <input type="radio" name="q6" value="C"> Both cool and warm tones suit you.
-            </label>
+    <div id="undertone-quiz" style="display: none;">
+        <h1>Know Your Skin Tone</h1>
+        <div class="question-container undertone-question" id="q1-container">
+            <p>What color are your veins? Look at the inner part of your wrist or anywhere on your body where you can easily see your veins.</p>
+            <div class="answer-container">
+                <label>
+                    <input type="radio" name="q1" value="A"> You have blue or purple veins.
+                </label>
+                <label>
+                    <input type="radio" name="q1" value="B"> You have green-looking veins.
+                </label>
+                <label>
+                    <input type="radio" name="q1" value="C"> Your veins look the same as your skin color or are a mix of the two.
+                </label>
+            </div>
+            <button class="next-button" type="button" data-next="q2-container">Next Question</button>
         </div>
 
-    	<!-- Add an ID to the submit button for the undertone quiz -->
-        <button class="next-button" type="button" data-next="combined-results-container" id="undertone-submit-button">Submit Undertone Quiz</button>
-    </div>
+        <!-- Question 2 Container -->
+        <div class="question-container undertone-question" id="q2-container" style="display: none;">
+            <p>What hair colors do you look best in? Have you always been a fan of platinum blonde, or do you gravitate towards golden shades when it comes to picking a suitable hair color? Depending on your undertones, certain hair dyes may be more flattering on you.</p>
+            <!-- Answer Choices for Question 2 -->
+            <div class="answer-container">
+                <label>
+                    <input type="radio" name="q2" value="A"> You look best with ashy or platinum hair shades.
+                </label>
+                <label>
+                    <input type="radio" name="q2" value="B"> You look best with mahogany or golden tones.
+                </label>
+                <label>
+                    <input type="radio" name="q2" value="C"> Both kinds of hair colors are flattering on you.
+                </label>
+            </div>
+            <button class="next-button" type="button" data-next="q3-container">Next Question</button>
+        </div>
 
-</div>
-</form>
-</div>
-<div class="results" id="combined-results-container" style="display: none;">
-        
+        <!-- Question 3 Container -->
+        <div class="question-container undertone-question" id="q3-container" style="display: none;">
+            <p>Try the white shirt trick. A quick trick you can use to determine your undertone involves a white shirt and a window. Stand in front of the window or in some sort of natural lighting and hold the shirt up to your face. How does the appearance of your skin change?</p>
+            <!-- Answer Choices for Question 3 -->
+            <div class="answer-container">
+                <label>
+                    <input type="radio" name="q3" value="A"> Your skin appears more pinkish or rosy.
+                </label>
+                <label>
+                    <input type="radio" name="q3" value="B"> Your skin appears warmer with a golden or yellowish tint.
+                </label>
+                <label>
+                    <input type="radio" name="q3" value="C"> Your skin appears the same; no noticeable change in color.
+                </label>
+            </div>
+            <button class="next-button" type="button" data-next="q4-container">Next Question</button>
+        </div>
+
+        <!-- Question 4 Container -->
+        <div class="question-container undertone-question" id="q4-container" style="display: none;">
+            <p>What jewelry complements your skin tone? Depending on your undertone, certain metals or gemstones might look better on you.</p>
+            <!-- Answer Choices for Question 4 -->
+            <div class="answer-container">
+                <label>
+                    <input type="radio" name="q4" value="A"> You look best in silver or white gold jewelry.
+                </label>
+                <label>
+                    <input type="radio" name="q4" value="B"> You look best in gold or rose gold jewelry.
+                </label>
+                <label>
+                    <input type="radio" name="q4" value="C"> Both silver and gold jewelry complement your skin tone.
+                </label>
+            </div>
+            <button class="next-button" type="button" data-next="q5-container">Next Question</button>
+        </div>
+
+        <!-- Question 5 Container -->
+        <div class="question-container undertone-question" id="q5-container" style="display: none;">
+            <p>What colors do you feel most confident wearing? Everyone has a favorite color, but some shades might make you feel more radiant than others. Pay attention to the colors that garner you the most compliments and make you feel like a million bucks.</p>
+            <!-- Answer Choices for Question 5 -->
+            <div class="answer-container">
+                <label>
+                    <input type="radio" name="q5" value="A"> Cool-toned colors like blues, purples, and cool pinks.
+                </label>
+                <label>
+                    <input type="radio" name="q5" value="B"> Warm-toned colors like reds, oranges, and warm yellows.
+                </label>
+                <label>
+                    <input type="radio" name="q5" value="C"> Both cool and warm colors make you feel confident.
+                </label>
+            </div>
+            <button class="next-button" type="button" data-next="q6-container">Next Question</button>
+        </div>
+
+        <!-- Question 6 Container -->
+        <div class="question-container undertone-question" id="q6-container" style="display: none;">
+            <p>What are the undertones of the makeup products that look best on your skin? Consider the foundation, lipstick, and blush shades that enhance your complexion the most.</p>
+            <!-- Answer Choices for Question 6 -->
+            <div class="answer-container">
+                <label>
+                    <input type="radio" name="q6" value="A"> Cool-toned makeup products.
+                </label>
+                <label>
+                    <input type="radio" name="q6" value="B"> Warm-toned makeup products.
+                </label>
+                <label>
+                    <input type="radio" name="q6" value="C"> Both cool and warm tones suit you.
+                </label>
+            </div>
+
+            <!-- Add an ID to the submit button for the undertone quiz -->
+            <button class="next-button" type="button" data-next="combined-results-container" id="undertone-submit-button">Submit Undertone Quiz</button>
+        </div>
+
+    </div>
+    </form>
+    </div>
+    <div class="results" id="combined-results-container" style="display: none;">
+
         <h2>Your Skin Type is: <span id="skintype"></span></h2>
-	<div>
-        <img id="skin-type-image" src="" alt="Skin Type Image">
+        <div>
+            <img id="skin-type-image" src="" alt="Skin Type Image">
         </div>
         <h2>Your Undertone is: <span id="undertonetype"></span></h2>
     </div>
@@ -436,10 +443,10 @@ button {
         let currentSkinQuestion = 1;
 	const skinTypeImages = {
     'Pale White': {
-        src: 'pale_white.jpeg', 
+        src: 'pale_white.jpeg',
     },
     'Fair White': {
-        src: 'fair_white.jpeg', 
+        src: 'fair_white.jpeg',
     },
     'Medium White to Olive': {
 	src: 'Olive.jpeg',
@@ -453,7 +460,7 @@ button {
     'Deeply Pigmented Dark Brown to Black': {
 	src: 'Black.jpeg',
     }
-    
+
 };
 
          // Event listener for the "Next Question" button in Skin Type Quiz

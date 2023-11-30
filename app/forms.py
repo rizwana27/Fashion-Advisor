@@ -59,14 +59,3 @@ class StylePreferenceForm(forms.Form):
     skinTone = forms.ChoiceField(choices=SKIN_TONE_CHOICES, label="Select your skin tone")
     colorPreference = forms.ChoiceField(choices=COLOR_CHOICES, label="Select your color preference")
 
-
-from .models import CustomerReview
-
-class CustomerReviewForm(forms.ModelForm):
-    class Meta:
-        model = CustomerReview
-        fields = ['name', 'rating', 'review']
-
-
-
-

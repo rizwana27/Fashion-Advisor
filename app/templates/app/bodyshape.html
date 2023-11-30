@@ -2,29 +2,17 @@
 <html>
 <head>
     <title>Bradley Bayou's Body Shape Calculator</title>
-    <div class="right">
-        <a href="{% url 'home' %}">Home</a>
-        {% if user.is_authenticated %}
-
-        <li><a href="{% url 'signout' %}">SignOut</a></li>
-        {% else %}
-        <li><a href="{% url 'signup' %}">SignUp</a></li>
-        <li><a href="{% url 'signin' %}">SignIn</a></li>
-        {% endif %}
-    </div>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #fff0f5; /* Light lavender pink background */
+            background-color: #f7f7f7;
             margin: 0;
             padding: 0;
-            transition: background-color 0.3s ease; /* Smooth transition for background color */
         }
 
         h1 {
             text-align: center;
             padding: 20px;
-            color: #333; /* Darker text color for better contrast on light background */
         }
 
         .container {
@@ -35,12 +23,7 @@
             border-radius: 8px;
             padding: 20px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-            transition: box-shadow 0.3s ease; /* Smooth transition for shadow */
         }
-
-            .container:hover {
-                box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
-            }
 
         .measurement-input {
             flex: 1;
@@ -61,12 +44,10 @@
                 border: 1px solid #ccc;
                 border-radius: 4px;
                 text-align: center;
-                transition: border-color 0.3s ease; /* Smooth transition for border color */
             }
 
                 .measurement-input input:focus {
                     border-color: #007bff;
-                    box-shadow: 0px 0px 8px rgba(0, 123, 255, 0.2); /* Subtle glow effect */
                     outline: none;
                 }
 
@@ -76,12 +57,7 @@
             background-color: #f0f0f0;
             border-radius: 8px;
             margin-right: 10px;
-            transition: background-color 0.3s ease; /* Smooth transition for background */
         }
-
-            .instructions:hover {
-                background-color: #e0e0e0; /* Slightly darker background on hover */
-            }
 
         #result {
             text-align: center;
@@ -100,71 +76,18 @@
             border: none;
             border-radius: 4px;
             cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition for color and transform */
         }
 
             .calculate-button:hover {
                 background-color: #7c1e51;
-                transform: translateY(-2px); /* Slight upward movement on hover */
             }
 
         .result-image {
             max-width: 100%;
-            max-height: 100px; /* Keep the maximum height of the images */
+            max-height: 100px; /* Set the maximum height of the images */
             display: none; /* Initially hide the images */
-            transition: opacity 0.3s ease; /* Fade transition */
         }
-
-            .result-image:active {
-                opacity: 0.6; /* Fade effect when active/pressed */
-            }
-        .right {
-            text-align: right;
-            padding: 10px 20px;
-            background-color: #fff; /* or any color that fits your design */
-        }
-
-            .right a,
-            .right li {
-                display: inline-block;
-                margin-left: 10px;
-                font-weight: bold;
-                color: #a62a6c; /* Matching the calculate-button color */
-                text-decoration: none;
-                transition: color 0.3s ease;
-            }
-
-                .right a:hover,
-                .right li:hover {
-                    color: #7c1e51; /* Darker shade for hover, matching the button hover */
-                }
-
-            /* If you're using <li> within a <ul>, you might want to reset list styles */
-            .right ul {
-                list-style: none;
-                padding: 0;
-                margin: 0;
-            }
-
-            /* If you want to style the links when the user is authenticated differently */
-            .right .authenticated-link {
-                color: #007bff; /* Different color to indicate active/authenticated state */
-            }
-
-        /* You may also want to add media queries to adjust the layout for smaller screens */
-        @media (max-width: 600px) {
-            .right {
-                text-align: center;
-            }
-
-                .right a,
-                .right li {
-                    display: block;
-                    margin-top: 5px;
-                }
-        }    
     </style>
-
 </head>
 <body>
     <h1>Bradley Bayou's Body Shape Calculator</h1>

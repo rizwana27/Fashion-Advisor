@@ -3,7 +3,7 @@ Definition of views.
 """
 
 from datetime import datetime
-from django.http import HttpRequest,HttpResponseRedirect
+from django.http import HttpRequest
 from django.contrib.auth.views import LoginView
 from django.shortcuts import render, redirect
 from django.contrib import messages
@@ -33,18 +33,6 @@ def bodyshape_view(request):
 
 def skintype_view(request):
     return render(request, 'app/skintype.html')
-
-def trends_view(request):
-    return render(request, 'app/trends.html')
-
-def trends_men_view(request):
-    return render(request, 'app/menfalltrends2023.html')
-
-def trends_women_view(request):
-    return render(request, 'app/wintertrendswomen2023.html')
-
-def trends_spring_view(request):
-    return render(request, 'app/spring2023trends.html')
 
 
 from django.contrib.sites.shortcuts import get_current_site
@@ -155,9 +143,9 @@ def activate(request, uidb64, token):
 
 # figure and fit view place holder
 
-#def figurefit(request):
+def figurefit(request):
     
- #   return render(request, 'app/test.html')
+    return render(request, 'app/test.html')
 
 
 def customerRev(request):
@@ -168,41 +156,6 @@ def customerRev(request):
 def advisor(request):
     
     return render(request, 'app/Influencers.html')
-
-
-
-from .forms import StylePreferenceForm
-
-def figurefit(request):
-    if request.method == 'POST':
-        form = StylePreferenceForm(request.POST)
-        if form.is_valid():
-            # Normally, you would do something with the data here,
-            # but if you're handling image display in the template with JavaScript,
-            # just pass the valid form back to the template.
-            return render(request, 'app/test.html', {'form': form})
-    else:
-        # If it's a GET request, just show the unbound form
-        form = StylePreferenceForm()
-
-
-    return render(request, 'app/test.html', {'form': form})
-
-
-from django.shortcuts import render, redirect
-from .forms import CustomerReviewForm
-
-def customer_review(request):
-    if request.method == 'POST':
-        form = CustomerReviewForm(request.POST)
-        if form.is_valid():
-            form.save()  # This saves the Customer Review to the database
-            return redirect('app/customer_review_page.html')  # Redirect to a success page
-    else:
-        form = CustomerReviewForm()  # An unbound form for GET request
-
-    return render(request, 'app/customer_review_page.html', {'form': form})
-
 
 
 

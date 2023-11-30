@@ -9,7 +9,6 @@ from django.contrib.auth.forms import AuthenticationForm
 # Create your models here.
 
 class Profile(models.Model):
-    
     GENDER_CHOICES = (
         ('male', 'Male'),
         ('female', 'Female'),
@@ -47,8 +46,3 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.gender + ' ' + self.shape + ' ' + self.skin_type + ' ' + self.color
-
-class CustomerReview(models.Model):
-    name = models.CharField(max_length=100)
-    rating = models.IntegerField(choices=[(i, i) for i in range(1, 6)])
-    review = models.TextField()
